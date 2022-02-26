@@ -1,3 +1,7 @@
+#button {
+  justify-content: center;
+  align-items: center;
+}
 #hi {
   text-align: center;
   color: red;

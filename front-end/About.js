@@ -6,9 +6,9 @@ function About({songs,setSongs}) {
         setSongs(<h2>Changed</h2>)
     }
     return (
-        <div>
+        <div class="button">
         <h1>{songs}</h1>
-        <button onClick={change}>Button</button>
+        <button onClick={change}>BUTTON</button>
         <Link to="/hi">ghjy</Link>
         </div>
     )
