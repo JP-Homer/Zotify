@@ -4,6 +4,39 @@ import './About.css';
 
 function About({songs,setSongs}) {
 
+    function handleClick() {
+        fetch('http://573b-169-234-40-216.ngrok.io/happy').then(response => response.json()).then(response => {
+            console.log(response);
+            let url = 'https://open.spotify.com/playlist/' + response.ID;
+            window.location = url;
+        })
+    }
+
+    function handleClick2() {
+        fetch('http://573b-169-234-40-216.ngrok.io/angsty').then(response => response.json()).then(response => {
+            console.log(response);
+            let url2 = 'https://open.spotify.com/playlist/' + response.ID;
+            window.location = url2;
+        })
+    }
+
+    function handleClick3() {
+        fetch('http://573b-169-234-40-216.ngrok.io/sad').then(response => response.json()).then(response => {
+            console.log(response);
+            let url3 = 'https://open.spotify.com/playlist/' + response.ID;
+            window.location = url3;
+        })
+    }
+
+    function handleClick4() {
+        fetch('http://573b-169-234-40-216.ngrok.io/chill').then(response => response.json()).then(response => {
+            console.log(response);
+            let url4 = 'https://open.spotify.com/playlist/' + response.ID;
+            window.location = url4;
+        })
+    }
+
+
     // function change() {
     //     setSongs(<h2>Changed</h2>)
     // }
@@ -21,11 +54,11 @@ function About({songs,setSongs}) {
         <div>
             <h6 id="undertitle">Zotfeels: How are you feeling?</h6>
         </div>
-            <button type="button" class="rounded">Happy</button>
-            <button type="button" class="rounded">Angry</button>
+            <button onClick={handleClick}type="button" class="rounded">Happy</button>
+            <button onClick={handleClick2} type="button" class="rounded">Angsty</button>
         <div>
-            <button type="button" class="rounded">Sad</button>
-            <button type="button" class="rounded">Chill</button>
+            <button onClick={handleClick3} type="button" class="rounded">Sad</button>
+            <button onClick={handleClick4} type="button" class="rounded">Chill</button>
         </div>
         {/* <div id="body2"> */}
            
