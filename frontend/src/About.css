@@ -16,7 +16,7 @@
     border-style: solid;
     border-color: lightgreen;
     border-width: 0.1em;
-    margin-left: em;
+    margin-left: 10em;
 }
 
 .rounded:nth-of-type(odd) {

@@ -7,7 +7,7 @@
     /* align-items: center; */
     font-weight: bold;
     font-size: x-large;
-    background-image: url('/Users/jacibschreiber/Desktop/zotify-main/Zotify/zotify-frontend/assets/peter.jpeg');
+    background-image: url('./peter.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
