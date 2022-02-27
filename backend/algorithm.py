@@ -1,5 +1,6 @@
 #algorithm.py
 def algorithm(song_info):
+    '''Main algortithm for filtering songs into different sounds and moods'''
     song_moods = {'happy': [], 'sad': [], 'angsty': [], 'chill': []}
     for index, (key, value) in enumerate(song_info.items()):
         # START EDIT
