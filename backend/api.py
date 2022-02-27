@@ -15,10 +15,10 @@ def run():
     song_information = {}
 
     spotify = SpotifyAPI()
-    get_playlist_token = 'BQBN40lnyx_r1koTdgUoMNzdXtYTxjiVTFqYnBWecnJYisxoOUkeAZc5xPc_lL7dxWgiuFPfv1-fALfgLy0q53Y0A9d2oMRMdTVgo5TDxKlqXWoDier9VzCkJ6ke_r8m2kojUxF7Nf5mdVPNRszXQyEsUxLVwOJXcMueDyvk-2BEl6aXhmLOoTKmOAsbuDK5hT7Q1ynDIETH9KqAdwNBDvLHb7uYOMHPqGjJDRtL7Kl3ECi1xycQ3sH5TP4j'
+    get_playlist_token = 'BQA6OnT2vXlYa0I_Wfectz_TRFLelRa7Bkd8bh7UevskaEA0EOYlY_S59nlkJEicLLWCtFYcA-U8NAXT37RTChDr6qCs3LGmbYp8gnHVk-xQaMpkdh9zul4PDobVorIFcdw2j_56wrnjE0UkKw-5qVc-B7_R5JTGADYY4cHd9njZ98ayJoUggx95Q75LBmL18Nw3X8LtXDKUuq7u5bVawfZavQ3V3w2oP9SOqoR92PhpO0YN7AQ2_OHTU3JI'
     spotify.set_token(get_playlist_token)
-    create_playlist_token = 'BQATxuFDj7TP_PBE8LMmtBLuNiZMLMEL_V2W_v9sfKfTRVdSmwxnmzoyeAWKooPYfDNoXF5b6hwm5UGqwb1KvdseFCk70mjLdkSMBTpXIpPHltIO9_DpkHQ9ITrAq9jkm8mAUJMnA-cJUjt0JrjditvAVdCql3f5KjdwYn5RaynQnkRedax4DyZvB90XWZllzLlctmP5JFrGy9nb6JgqzarD-mjq0OzvBCX1mOiJXK8MrCMle9_pqrce-oES'
-    add_items_token = 'BQC9c8JRi84-5Ph1mxuV4U0UJP_SWHcokV0JzC-oyk8k1YLOLDBl-NExZ6Now6UssbyXFPxZy2MsxszoAVddzFQay1gMsWUZZpZdd7RdC23-XIZ_N4aErkueKnDit6-7zIeY7MURXVyO8LKKLE4kLtGRuQeWdjgEapwo80w6GC6X_8trWoSwc2S_m6aB6tIHSWR13i8z9ftV2cDC10BCI8tN_vRiu9PFJCve6EK5tbK7sFDukhFG-p2Oa_eM'
+    create_playlist_token = 'BQD-Pw5C1A7dH9wUq7VAn_tUesbLTrM984qd3rVOmFFvvS0Y2yKTLZBlTuCatSULfUpNWELL0w97kfX7A7vEh_SkheWVVhx27UYSxfrUOhSW-qpxhhzdIrgxSvMr2t5osWZNXjKCyqRSRV-RrzVPJiuCA9r95_RQ_9wELd1Hd_yaqkHKrqa_rGyR_QssrQ9NkcPS048BQgeX87EffELnxVwQejNlsz-hlhFd24F3TJ7EPTxR3_l1XQKz_vu0'
+    add_items_token = 'BQApKoAHmtooFjzz2baTLzGHahkAcZweygvhTXoksqvsZZo2ssJCYcCD2AXtRGmdBB1MezU3NzjV0v845wg6O_yYgrrOpdPtLSRMB2YcyWeJNPBNZeT9-EOQbuxqafeb67cdGfc8kdi8uYHltMk8fNHyS_JTGgnLHuebUnjd_fHBm4amaXWAnJnrsPzTc2dgcmJdRFWv2KnChj4rX1mPLx9_nKg6g2vMyywXK3pNISm-yXBZmh_XKCLaGBgW'
     song_ids = playlist()
     gather_song_data(song_ids)
 
@@ -65,18 +65,11 @@ class SpotifyAPI:
         json_resp = response.json()
         return json_resp
 
-    # def get_users_playlist_id(self, response):
-    #     playlist_id = response['items'][0]['uri']
-    #     playlist_id = playlist_id[playlist_id.find('spotify:playlist:') + 17:]
-    #     self.playlist_id = playlist_id
-    #     return playlist_id
-
     def get_playlist_songs(self, response):
         id = response['items'][0]['track']['id']
         return id
 
     def get_song_info(self, response, id):
-        print('WHORE')
         print(response)
         energy = response['energy']
         valence = response['valence']
@@ -97,7 +90,6 @@ def playlist():
     url = 'https://api.spotify.com/v1/playlists/5ABHKGoOzxkaa28ttQV9sE/tracks'
     spotify.set_url(url)
     response = spotify.call_api()
-    print(response)
 
     songs = []
 
@@ -140,6 +132,7 @@ def happy():
     new_playlist_id = new_playlist('Happy')
     add_songs(new_playlist_id, choice)
     song_information = {}
+    return new_playlist_id
 
 
 def sad():
@@ -152,6 +145,7 @@ def sad():
     new_playlist_id = new_playlist('Sad')
     add_songs(new_playlist_id, choice)
     song_information = {}
+    return new_playlist_id
 
 def angsty():
     global song_information
@@ -163,6 +157,7 @@ def angsty():
     new_playlist_id = new_playlist('Angsty')
     add_songs(new_playlist_id, choice)
     song_information = {}
+    return new_playlist_id
 
 def chill():
     global song_information
@@ -174,6 +169,7 @@ def chill():
     new_playlist_id = new_playlist('Chill')
     add_songs(new_playlist_id, choice)
     song_information = {}
+    return new_playlist_id
 
 
 

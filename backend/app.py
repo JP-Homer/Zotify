@@ -18,18 +18,22 @@ def index():
 def happy_button():
     result = run()
     resxult = happy()
+    return jsonify({'ID': resxult})
 
 @app.route('/sad')
 def sad_button():
     result = run()
     resxult = sad()
+    return jsonify({'ID': resxult})
 
 @app.route('/angsty')
 def angsty_button():
     result = run()
     resxult = angsty()
+    return jsonify({'ID': resxult})
 
 @app.route('/chill')
 def chill_button():
     result = run()
     resxult = chill()
+    return jsonify({'ID': resxult})
