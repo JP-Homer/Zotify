@@ -1,0 +1,34 @@
+#mytitle {
+    display: flex;
+    justify-content: center;
+    color: green;
+}
+
+#undertitle {
+    display: flex;
+    justify-content: center;
+    color: lawngreen;
+}
+
+.rounded {
+    width: 10em;
+    background-color: green;
+    border-style: solid;
+    border-color: lightgreen;
+    border-width: 0.1em;
+    margin-left: em;
+}
+
+.rounded:nth-of-type(odd) {
+    /* margin-left: 2em; */
+    margin-bottom: 5em; 
+    margin-top: 2.5em; 
+}
+
+.rounded:nth-of-type(even) {
+    margin-left: 5em;
+}
+
+body {
+    background-color: black;
+}

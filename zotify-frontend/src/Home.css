@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@100&display=swap');
+
+#top {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    font-weight: bold;
+    font-size: x-large;
+    background-image: url('/Users/jacibschreiber/Desktop/zotify-main/Zotify/zotify-frontend/assets/peter.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* opacity: 0.65; */
+    /* filter:blur(2px); */
+}
+
+
+#bottom {
+    background-color: black;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rounded-pill{
+    background-color: rgb(29,189,84);
+    border-radius: round;
+    border: none;
+    padding: 2%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    font-size: x-large;
+    
+}
+
+.rounded-pill:hover {
+    font-size: xx-large;
+}
+
+.bn {
+    color: white;
+    margin-top: 8%;
+}
