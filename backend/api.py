@@ -97,6 +97,7 @@ def playlist():
     url = 'https://api.spotify.com/v1/playlists/5ABHKGoOzxkaa28ttQV9sE/tracks'
     spotify.set_url(url)
     response = spotify.call_api()
+    print(response)
 
     songs = []
 
