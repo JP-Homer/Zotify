@@ -17,7 +17,7 @@ function Home(){
             </div>
 
             <div id="bottom">  
-                <Link to"/mood"><button type="button" class="rounded-pill">Get Started</button></Link>
+                <Link to="/mood"><button type="button" class="rounded-pill">Get Started</button></Link>
             </div>
             
         </div>
