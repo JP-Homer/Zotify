@@ -1,6 +1,4 @@
 #algorithm.py
-from moods import Mood
-
 def algorithm(song_info):
     song_moods = {'happy': [], 'sad': [], 'angsty': [], 'chill': []}
     for index, (key, value) in enumerate(song_info.items()):

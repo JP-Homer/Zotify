@@ -6,7 +6,21 @@ import algorithm
 
 #Protocol order: sign in, assign moods to types of music, create playlist, pull songs from their playlists, add to new playlist, return playlist
 
-song_information = {}
+def run():
+    global spotify
+    global create_playlist_token
+    global add_items_token
+    global song_information
+
+    song_information = {}
+
+    spotify = SpotifyAPI()
+    get_playlist_token = 'BQBN40lnyx_r1koTdgUoMNzdXtYTxjiVTFqYnBWecnJYisxoOUkeAZc5xPc_lL7dxWgiuFPfv1-fALfgLy0q53Y0A9d2oMRMdTVgo5TDxKlqXWoDier9VzCkJ6ke_r8m2kojUxF7Nf5mdVPNRszXQyEsUxLVwOJXcMueDyvk-2BEl6aXhmLOoTKmOAsbuDK5hT7Q1ynDIETH9KqAdwNBDvLHb7uYOMHPqGjJDRtL7Kl3ECi1xycQ3sH5TP4j'
+    spotify.set_token(get_playlist_token)
+    create_playlist_token = 'BQATxuFDj7TP_PBE8LMmtBLuNiZMLMEL_V2W_v9sfKfTRVdSmwxnmzoyeAWKooPYfDNoXF5b6hwm5UGqwb1KvdseFCk70mjLdkSMBTpXIpPHltIO9_DpkHQ9ITrAq9jkm8mAUJMnA-cJUjt0JrjditvAVdCql3f5KjdwYn5RaynQnkRedax4DyZvB90XWZllzLlctmP5JFrGy9nb6JgqzarD-mjq0OzvBCX1mOiJXK8MrCMle9_pqrce-oES'
+    add_items_token = 'BQC9c8JRi84-5Ph1mxuV4U0UJP_SWHcokV0JzC-oyk8k1YLOLDBl-NExZ6Now6UssbyXFPxZy2MsxszoAVddzFQay1gMsWUZZpZdd7RdC23-XIZ_N4aErkueKnDit6-7zIeY7MURXVyO8LKKLE4kLtGRuQeWdjgEapwo80w6GC6X_8trWoSwc2S_m6aB6tIHSWR13i8z9ftV2cDC10BCI8tN_vRiu9PFJCve6EK5tbK7sFDukhFG-p2Oa_eM'
+    song_ids = playlist()
+    gather_song_data(song_ids)
 
 class SpotifyAPI:
     url = ''
@@ -62,6 +76,8 @@ class SpotifyAPI:
         return id
 
     def get_song_info(self, response, id):
+        print('WHORE')
+        print(response)
         energy = response['energy']
         valence = response['valence']
         tempo = response['tempo']
@@ -71,13 +87,6 @@ class SpotifyAPI:
         song_information[id]['energy'] = energy
         song_information[id]['valence'] = valence
         song_information[id]['tempo'] = tempo
-
-spotify = SpotifyAPI()
-get_playlist_token = 'BQDxaPVgCv3jryCRGp7ETFGhezX6lxwk9jS8Xai50x9W_6TNqGyVoW4bP1AOu7cvGzOmcYHOKg_aQylajwJpjBtpUUya3UZQ2FBjxkQ5AVW9xucZpVl2DgWptVeP7AkLu5dJRE2-XcFyBHwVc1Tc-ReWdkZ_EbmjfghKzkflMKa3asydsExTyQZeO55f0xip8IEwbYWtAdP_sf9ObKpYFMQVicdRChAblBmV8LkJlg-g-jdWVswTdWXshmG9'
-spotify.set_token(get_playlist_token)
-create_playlist_token = 'BQD0Gl7nne54XvBESawrbiTTB-F6AWH9Q_m-wYEkhsOyJvFd8cPdjoywUlnqOC6zHg31aBZPjZSJaj1ZiPvvkk3BGvR3N16fwGBrRHZKzGnUq0XWinfLHK2FP3RO-NqhwAC3tLgG8J7rnIBkiLmp6aQbfoOcCjVbE2jf2vLRf1517JiUtK--rQHfWIHc6dWNJuFMqU4G50YvxSCbnA'
-add_items_token = 'BQBFQZJc5Rxg7vclOa3yv4Gc5ADKmiRtUbxa7Hwn4C0LqO-6OP6rdhCMouXIEIF1lZNA66dhmsGMTwKrPt0wM3EiFNGBRpo961mfp_oIKFIERNtievfyqTywBy-sW-oxLqNNNdnEP6eJJxml2eNrelDRbAEXOTqB3NjnC-4QTiat5yfvvsLYdrNYHNY8JAzDGNz7dJq2Jo0_DL-0zNdPTcg4cAhB0okQ0Z07QjbKAm9xbmCfQbt6z3ZohlpO'
-
 
 def playlist():
     # CHRISTIAN spotify:playlist:1BqjQjBheHGLEG5pDcrhVv
@@ -96,13 +105,13 @@ def playlist():
 
     return songs
 
-def new_playlist():
+def new_playlist(name):
     user_id = 'misterepicness'
     url = f'https://api.spotify.com/v1/users/{user_id}/playlists'
 
     spotify.set_token(create_playlist_token)
     spotify.set_url(url)
-    response = spotify.create_playlist('testing', True)
+    response = spotify.create_playlist(name, True)
     return(response['id'])
 
 def gather_song_data(song_ids):
@@ -119,19 +128,51 @@ def add_songs(playlist_id, uris):
     response = spotify.add(uris)
     return response
 
+#These functions are for the buttons
+def happy():
+    global song_information
+    possible_playlists = algorithm.algorithm(song_information)
+    choice = possible_playlists['happy']
+    for index, uri in enumerate(choice):
+        choice[index] = 'spotify:track:' + uri
+
+    new_playlist_id = new_playlist('Happy')
+    add_songs(new_playlist_id, choice)
+    song_information = {}
 
 
-song_ids = playlist()
-gather_song_data(song_ids)
-possible_playlists = algorithm.algorithm(song_information)
-happy = possible_playlists['chill']
-for index, uri in enumerate(happy):
-    happy[index] = 'spotify:track:' + uri
+def sad():
+    global song_information
+    possible_playlists = algorithm.algorithm(song_information)
+    choice = possible_playlists['sad']
+    for index, uri in enumerate(choice):
+        choice[index] = 'spotify:track:' + uri
 
+    new_playlist_id = new_playlist('Sad')
+    add_songs(new_playlist_id, choice)
+    song_information = {}
 
+def angsty():
+    global song_information
+    possible_playlists = algorithm.algorithm(song_information)
+    choice = possible_playlists['angsty']
+    for index, uri in enumerate(choice):
+        choice[index] = 'spotify:track:' + uri
 
-new_playlist_id = new_playlist()
-add_songs(new_playlist_id, happy)
+    new_playlist_id = new_playlist('Angsty')
+    add_songs(new_playlist_id, choice)
+    song_information = {}
+
+def chill():
+    global song_information
+    possible_playlists = algorithm.algorithm(song_information)
+    choice = possible_playlists['chill']
+    for index, uri in enumerate(choice):
+        choice[index] = 'spotify:track:' + uri
+
+    new_playlist_id = new_playlist('Chill')
+    add_songs(new_playlist_id, choice)
+    song_information = {}
 
 
 
