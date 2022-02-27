@@ -1,7 +1,7 @@
 import {Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import './About.css';
-
+import peterImage from './clipart338064.png'
 function About({songs,setSongs}) {
 
     function handleClick() {
@@ -47,16 +47,19 @@ function About({songs,setSongs}) {
         // <Link to="/tester">ghjy</Link>
         // </div>
         <>
-        <div>
-            <h1 id="mytitle"> Zotify</h1>
+        <div id="mytitle">
+        <img src= {peterImage} alt="Peter"></img>
+            <span > Zotify</span>
         </div>
 
         <div>
             <h6 id="undertitle">Zotfeels: How are you feeling?</h6>
         </div>
+
+        <div class="wrapper">
             <button onClick={handleClick}type="button" class="rounded">Happy</button>
             <button onClick={handleClick2} type="button" class="rounded">Angsty</button>
-        <div>
+
             <button onClick={handleClick3} type="button" class="rounded">Sad</button>
             <button onClick={handleClick4} type="button" class="rounded">Chill</button>
         </div>
