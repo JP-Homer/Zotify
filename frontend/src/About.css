@@ -2,21 +2,24 @@
     display: flex;
     justify-content: center;
     color: green;
+    font-size: 6em;
 }
 
 #undertitle {
     display: flex;
     justify-content: center;
     color: lawngreen;
+    font-size: 1.8em;
 }
 
 .rounded {
-    width: 10em;
+    width: 17em;
+    height: 8em;
     background-color: green;
     border-style: solid;
     border-color: lightgreen;
-    border-width: 0.1em;
-    margin-left: 10em;
+    border-width: 0.2em;
+    margin-left: 25em;
 }
 
 .rounded:nth-of-type(odd) {

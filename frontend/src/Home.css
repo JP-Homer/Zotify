@@ -32,15 +32,16 @@
     color: white;
     font-family: 'Montserrat', sans-serif;
     /* font-family: 'Roboto', sans-serif; */
-    font-size: x-large;
+    font-size: 3em;
     
 }
 
 .rounded-pill:hover {
-    font-size: xx-large;
+    font-size: 4em;
 }
 
 .bn {
     color: white;
-    margin-top: 8%;
+    margin-top: 5%;
+    font-size: 3em;
 }
