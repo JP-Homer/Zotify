@@ -5,7 +5,7 @@ import './About.css';
 function About({songs,setSongs}) {
 
     function handleClick() {
-        fetch('http://3d67-169-234-40-216.ngrok.io/happy').then(response => response.json()).then(response => {
+        fetch('http://8829-169-234-40-216.ngrok.io/happy').then(response => response.json()).then(response => {
             console.log(response);
             let url = 'https://open.spotify.com/playlist/' + response.ID;
             window.location = url;
@@ -13,7 +13,7 @@ function About({songs,setSongs}) {
     }
 
     function handleClick2() {
-        fetch('http://3d67-169-234-40-216.ngrok.io/angsty').then(response => response.json()).then(response => {
+        fetch('http://8829-169-234-40-216.ngrok.io/angsty').then(response => response.json()).then(response => {
             console.log(response);
             let url2 = 'https://open.spotify.com/playlist/' + response.ID;
             window.location = url2;
@@ -21,7 +21,7 @@ function About({songs,setSongs}) {
     }
 
     function handleClick3() {
-        fetch('http://3d67-169-234-40-216.ngrok.io/sad').then(response => response.json()).then(response => {
+        fetch('http://8829-169-234-40-216.ngrok.io/sad').then(response => response.json()).then(response => {
             console.log(response);
             let url3 = 'https://open.spotify.com/playlist/' + response.ID;
             window.location = url3;
@@ -29,7 +29,7 @@ function About({songs,setSongs}) {
     }
 
     function handleClick4() {
-        fetch('http://3d67-169-234-40-216.ngrok.io/chill').then(response => response.json()).then(response => {
+        fetch('http://8829-169-234-40-216.ngrok.io/chill').then(response => response.json()).then(response => {
             console.log(response);
             let url4 = 'https://open.spotify.com/playlist/' + response.ID;
             window.location = url4;
