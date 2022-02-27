@@ -1,8 +1,12 @@
 #mytitle {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: auto auto;
+    width: min-content;
+    margin: 0 auto;
+    grid-template-rows: 1fr;
     color: green;
     font-size: 6em;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #undertitle {
@@ -10,28 +14,41 @@
     justify-content: center;
     color: lawngreen;
     font-size: 1.8em;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .rounded {
-    width: 17em;
-    height: 8em;
+    height: 100%;
     background-color: green;
     border-style: solid;
     border-color: lightgreen;
     border-width: 0.2em;
-    margin-left: 25em;
+    /* margin-left: 25em; */
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    border-radius: 20px !important; 
 }
 
-.rounded:nth-of-type(odd) {
-    /* margin-left: 2em; */
-    margin-bottom: 5em; 
-    margin-top: 2.5em; 
-}
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 80px;
+    column-gap: 80px;
+    width: 80vw;
+    margin: 0 auto;
+    height: 300px;
+    margin-top: 100px;
 
-.rounded:nth-of-type(even) {
-    margin-left: 5em;
 }
 
 body {
     background-color: black;
+}
+
+img {
+    width: 150px;
+    height: auto;
 }
